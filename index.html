@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="PineappleOS — операционная система будущего уже сегодня">
+    <meta property="og:site_name" content="PineappleOS">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="Откройте для себя новую современную операционную систему, основанную на Linux и сочетающую в себе лёгкость, производительность, удобный и минималистичный интерфейс.">
+    <meta property="og:image" content="pineappleos_logo.svg">
+	<title>PineappleOS — операционная система будущего уже сегодня</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="icon" href="pineappleos_logo.svg" type="image/svg">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<!-- Шапка -->
+	<div class="container">
+		<header class="header">
+			<h1 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
+				<img src="pineappleos_logo.svg" width="50" alt="[pineappleos_logo]">
+				<a href="#" class="ps-1 logo">PineappleOS</a>
+			</h1>
+			<nav class="navbar">
+				<a target="_blank" href="https://github.com/VladislavBanitsky/PineappleOS">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.195 22 16.418 22 12.017 22 6.484 17.522 2 12 2z"/>
+					</svg>
+				</a>
+				<a class="d-flex align-items-center col-md-auto language-selector">
+                    <select name="lang_select" id="lang_select">
+                        <option dir="ltr" value="en">🇮🇪/🇬🇧/🇺🇸</option>
+                        <option dir="ltr" selected="selected" value="ru">🇷🇺</option>
+                    </select>
+                </a>
+				<a href="#" class="theme-toggle">
+					<svg class="theme-icon dark-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+						<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+					</svg>
+					<svg class="theme-icon light-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+						<circle cx="12" cy="12" r="5"></circle>
+						<line x1="12" y1="1" x2="12" y2="3"></line>
+						<line x1="12" y1="21" x2="12" y2="23"></line>
+						<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+						<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+						<line x1="1" y1="12" x2="3" y2="12"></line>
+						<line x1="21" y1="12" x2="23" y2="12"></line>
+						<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+						<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+					</svg>
+				</a>
+			</nav>
+		</header>
+	</div>
+	
+	<!-- Слайдер -->
+	<div class="slider-container">
+		<div class="image-block">
+		  <div class="screenshot-container">
+			<!-- Два изображения с разной прозрачностью -->
+			<img src="screenshot_dark.png" alt="[screenshot_dark]" class="screenshot" id="dark-theme" style="opacity: 1;">
+			<img src="screenshot_light.png" alt="[screenshot_light]" class="screenshot" id="light-theme" style="opacity: 0;">
+		  </div>
+		  
+		  <div class="text-content">
+			<h1 id="typing-container">
+				<span id="typing-text"></span>
+				<span id="cursor" class="cursor"></span>
+			</h1>
+			<p id="description_p">Откройте для себя новую современную операционную систему, основанную на Linux и сочетающую в себе лёгкость, производительность, удобный и минималистичный интерфейс. Логотип PineappleOS — это сочная ананасовая долька :)</p>
+			<a id="download_btn" class="btn btn-primary d-grid gap-2" target="_blank" href="https://drive.google.com/file/d/1vhXfDbbHK98WqOvkKnFbFuYJXyHE96kx/edit" role="button">Скачать PineappleOS v.1.0</a>
+		  </div>
+		</div>
+    </div>
+	
+	<!-- FAQ -->
+	<div class="faq-container">
+        <h2 id="faq_header" class="text-center pb-1">Спрашивали? Отвечаем!</h2>
+        <div class="faq-item">
+            <div class="faq-question">
+                <div id="faq_q1" class="faq-question-text">PineappleOS — это бесплатная операционная система?</div>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div id="faq_a1" class="faq-answer">
+                <p>Да, и содержит открытый исходный код в лучших традициях GNU GPL, благодаря чему каждый может настроить систему под себя или помочь в развитии проекта.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <div id="faq_q2" class="faq-question-text">Какие системные требования у PineappleOS?</div>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div id="faq_a2" class="faq-answer">
+                <p>
+					<ul>
+						<li><strong>Процессор</strong>: двухъядерный с частотой 1 ГГц или выше.</li>
+						<li><strong>Оперативная память (RAM)</strong>: от 4 ГБ.</li>
+						<li><strong>Место на жёстком диске</strong>: от 25 ГБ свободного места.</li>
+						<li><strong>Видеокарта</strong>: VGA с разрешением экрана 1024×768 и выше.</li>
+					</ul>
+				</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <div id="faq_q3" class="faq-question-text">Как получить поддержку?</div>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div id="faq_a3" class="faq-answer">
+                <p>Мы поддерживаем друг друга в нашем уютном сообществе на GitHub.</p>
+            </div>
+        </div>
+		
+		<div class="faq-item">
+            <div class="faq-question">
+                <div id="faq_q4" class="faq-question-text">Кто разработчик PineappleOS?</div>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div id="faq_a4" class="faq-answer">
+                <p>PineappleOS — это некоммерческий проект, развивающийся исключительно на энтузиазме его автора в свободное время. В связи с этим, вся ответственность за любой ущерб от использования PineappleOS, если такой возникнет, несёт пользователь системы.</p>
+            </div>
+        </div>
+		
+		<div class="faq-item">
+            <div class="faq-question">
+                <div id="faq_q5" class="faq-question-text">Как помочь в развитии PineappleOS?</div>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div id="faq_a5" class="faq-answer">
+                <p>Можете предложить свои идеи в нашем сообществе на GitHub и поставить звёздочку <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="github-star">
+    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path>
+</svg>.</p>
+            </div>
+        </div>
+		
+		<div class="faq-item">
+            <div class="faq-question">
+                <div id="faq_q6" class="faq-question-text">Как установить PineappleOS?</div>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div id="faq_a6" class="faq-answer">
+                <p> Установка PineappleOS ничем не отличается от установки любой другой операционной системы:
+					<ol>
+						<li>Загрузка ISO-образа.</li>
+						<li>Создание загрузочной флешки любой удобной программой, например через Rufus или Ventoy.</li>
+						<li>Загрузка с флешки через BIOS или Boot-меню.</li>
+						<li>Установка системы с затиранием диска или рядом с уже установленной Windows/Linux.</li>
+					</ol>
+					<strong>Для стабильной работы системы рекоммендуется устанавливать систему с подключением к интернету.</strong>
+				</p>
+            </div>
+        </div>
+		
+		<div class="faq-item">
+            <div class="faq-question">
+                <div id="faq_q7" class="faq-question-text">Во время установки системы появляется ошибка Something went wrong</div>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div id="faq_a7" class="faq-answer">
+                <p> 
+					<ul>
+						<li>Поновой загрузитесь с загрузочной флешки.</li>
+						<li>Когда установщик предложит подключиться к интернету — сделайте это.</li>
+						<li>Если установщик предложит скачать обновление для самого себя — соглашайтесь, далее, повторно запустите установщик.</li>
+						<li>Если будут предложены обновления и стронний софт (кодеки, драйвера) — всё устанавливайте, так будет меньше проблем в дальнейшем.</li>
+					</ul>
+				</p>
+            </div>
+        </div>
+		
+		<div class="faq-item">
+            <div class="faq-question">
+                <div id="faq_q8" class="faq-question-text">Другой вопрос</div>
+                <div class="faq-toggle">+</div>
+            </div>
+            <div id="faq_a8" class="faq-answer">
+                <p>Пишите в наше сообщество на GitHub — здесь всегда поддержат (автор проекта или другие неравнодушные пользователи).</p>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Футер -->
+	<div class="container">
+		<footer class="footer text-center">
+			<p>&copy; 2025 PineappleOS. Все права защищены.</p>
+		</footer>
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+	<script src="language.js"></script>
+</body>
+</html>

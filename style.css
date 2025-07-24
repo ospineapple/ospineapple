@@ -1,0 +1,430 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Arial', sans-serif;
+}
+
+:root {  /* светлая тема */
+	--bg-color: rgba(255, 255, 255, 0.15);
+	--bg-color-header: rgba(255, 255, 255, 0.15);
+	--text-color: #333333;
+	--highlight-color: #00ff30;
+	--border-color: #dddddd;
+	--question-bg: #f9f9f9;
+	--question-hover: #f0f0f0;
+	--active-bg: #e9f7fe;
+	--toggle-color: #666666;
+	--active-toggle: #0066cc;
+	--shadow: 0 2px 5px rgba(0,0,0,0.05);
+	--active-shadow: 0 3px 10px rgba(0,102,204,0.1);
+}
+        
+.dark-mode {  /* тёмная тема */
+	--bg-color: rgba(0, 0, 0, 0.15);
+	--bg-color-header: rgba(0, 0, 0, 0.15);
+	--text-color: #f0f0f0;
+	--highlight-color: #5dab5d;
+	--border-color: #444444;
+	--question-bg: #2d2d2d;
+	--question-hover: #3d3d3d;
+	--active-bg: #1a3a4a;
+	--toggle-color: #aaaaaa;
+	--active-toggle: #4d9eff;
+	--shadow: 0 2px 5px rgba(0,0,0,0.2);
+	--active-shadow: 0 3px 10px rgba(77,158,255,0.2);
+}
+
+body {
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	transition: background-color 0.3s, color 0.3s;
+	background: url('https://images.unsplash.com/photo-1707345512638-997d31a10eaa?q=80&w=3000') center/cover no-repeat fixed;
+}
+
+/* Шапка сайта */
+.header {
+	position: fixed;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 94%;
+	max-width: 1200px;
+	padding: 15px 25px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 100;
+	backdrop-filter: blur(15px);
+	-webkit-backdrop-filter: blur(15px);
+	background-color: var(--bg-color-header);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: 50px;
+	transition: all 0.3s ease;
+}
+
+/* Эффект при скролле */
+body.scrolled .header {
+	top: 10px;
+	padding: 12px 20px;
+	border-radius: 40px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.logo {
+	font-size: 20px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	z-index: 101;
+}
+
+.navbar {
+	display: flex;
+	align-items: center;
+}
+
+.navbar a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 15px;
+	transition: all 0.3s;
+	font-weight: 500;
+	padding: 6px 3px;
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.navbar a:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Медиазапросы для адаптации */
+@media (min-width: 768px) {
+	.header {
+		padding: 20px 30px;
+	}
+	
+	.logo {
+		font-size: 24px;
+	}
+	
+	.navbar a {
+		display: inline-block;
+		font-size: 16px;
+	}
+}
+
+@media (min-width: 992px) {
+	.navbar a {
+		margin-left: 25px;
+		font-size: 17px;
+	}
+}
+
+/* Настройка переключателя темы */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+}
+
+.theme-icon {
+    transition: all 0.3s ease;
+    stroke: #fff; /* Белый цвет для иконок в шапке */
+}
+
+.mobile-menu .theme-icon {
+    stroke: #fff; /* Белый цвет для иконок в мобильном меню */
+}
+
+.dark-icon {
+    display: none;
+}
+
+.light-icon {
+    display: block;
+}
+
+.dark-mode .dark-icon {
+    display: block;
+}
+
+.dark-mode .light-icon {
+    display: none;
+}
+
+/* Слайдер */
+.slider-container {
+	max-width: 1200px;
+	margin: 140px auto 20px;
+	backdrop-filter: blur(15px);
+	-webkit-backdrop-filter: blur(15px);
+}
+
+.image-block {
+	display: flex;
+	align-items: center;
+	margin: 20px auto;
+	background-color: var(--bg-color);
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.screenshot-container {
+	position: relative;
+	width: 60%;
+	min-height: 400px;
+}
+
+.screenshot {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: left;
+	transition: opacity 0.8s ease-in-out;
+}
+
+.text-content {
+	width: 40%;
+	padding: 30px;
+	box-sizing: border-box;
+
+	color: var(--text-color);
+}
+
+.text-content h2 {
+    color: var(--text-color);
+    margin-top: 0;
+}
+
+.text-content p {
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* FAQ */
+.faq-container {
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: var(--bg-color);
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+	backdrop-filter: blur(15px);
+	-webkit-backdrop-filter: blur(15px);
+}
+
+.faq-item {
+	margin-bottom: 10px;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: var(--shadow);
+	transition: all 0.2s ease;
+}
+
+.faq-question {
+	padding: 15px 20px;
+	background-color: var(--question-bg);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.faq-question:hover {
+	background-color: var(--question-hover);
+}
+
+.faq-question-text {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.faq-toggle {
+	font-size: 24px;
+	font-weight: bold;
+	color: var(--toggle-color);
+	transition: all 0.2s ease;
+}
+
+.faq-answer {
+	padding: 0 20px;
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition: 
+		max-height 0.25s ease-out,
+		padding 0.25s ease,
+		opacity 0.15s ease;
+}
+
+.faq-item.active .faq-question {
+	background-color: var(--active-bg);
+}
+
+.faq-item.active .faq-answer {
+	padding: 20px;
+	max-height: 500px;
+	opacity: 1;
+	background-color: var(--bg-color);
+}
+
+.faq-item.active .faq-toggle {
+	transform: rotate(45deg);
+	color: var(--active-toggle);
+}
+
+.faq-item:hover {
+	border-color: var(--active-toggle);
+}
+
+.faq-item.active {
+	border-color: var(--active-toggle);
+	box-shadow: var(--active-shadow);
+}
+
+/* Эффект печати текста*/
+
+#typing-container {
+	display: flex;
+	align-items: center;
+	min-height: 30px;
+}
+#typing-text {
+	font-size: 24px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.highlight-partial {
+	background-color: var(--highlight-color);
+	padding: 2px 0;
+	border-radius: 2px;
+}
+.cursor {
+	display: inline-block;
+	width: 2px;
+	height: 24px;
+	background-color: var(--text-color);
+	animation: blink 0.7s infinite;
+}
+@keyframes blink {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0; }
+}
+
+/* Футер */
+.footer {
+    position: relative;
+    width: 94%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 30px 25px;
+    z-index: 100;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: var(--bg-color-header);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50px;
+    color: #fff;
+}
+
+.github-star {
+    fill: #e3b341; /* Белый цвет для иконок в шапке */
+}
+
+/* Стили для выпадающего списка языка */
+
+#lang_select {
+    background-color: var(--bg-color-header);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 30px;
+    margin-left: 15px;
+}
+
+/* Светлая тема */
+:root #lang_select {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333333'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+}
+
+/* Тёмная тема */
+.dark-mode #lang_select {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f0f0f0'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+}
+
+#lang_select:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+:root #lang_select:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode #lang_select:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Кастомизация выпадающего списка (работает не во всех браузерах) */
+#lang_select option {
+    background-color: var(--question-bg);
+    color: var(--text-color);
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+	.slider-container {
+        margin-top: 140px; /* Больший отступ для десктопов */
+    }
+	
+	.image-block {
+		flex-direction: column;
+	}
+
+	.screenshot-container, .text-content {
+		width: 100%;
+	}
+
+	.screenshot-container {
+		min-height: 300px;
+	}
+	
+	language-selector {
+        display: none;
+    }
+	
+	.footer {
+        padding: 20px 15px;
+        border-radius: 20px;
+    }
+}
